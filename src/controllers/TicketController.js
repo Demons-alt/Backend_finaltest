@@ -38,7 +38,7 @@ const ApprovalTicket = (req, res) => {
 const ApprovalPM = (req, res) => {
   const Update = req.body.update;
   const id = req.body.id_ticket;
-  const sqlQuery = `UPDATE ticket SET status = '${Update}' WHERE ticket_id = '${id}'`;
+  const sqlQuery = `UPDATE ticket SET current_approval_name = '${Update}' WHERE ticket_id = '${id}'`;
   db.query(sqlQuery, (err, result) => {
     const object = {
       data: result,
@@ -173,4 +173,5 @@ module.exports = {
   GetPendingTicket,
   ApprovalTicket,
   DetailTicket,
+  ApprovalPM
 };
